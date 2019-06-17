@@ -15,6 +15,12 @@ DNA-seq：
     
     $ snakemake -j 8 -s sk_trim
 
+### Main process
+  1. Quality assessment
+  2. Alignment against hg38
+  3. Duplicate removal
+  4. Variant calling (germline or somatic mode)
+  5. Variant annotation
 
 
 <H2>
@@ -71,5 +77,39 @@ fastqc *.gz   ##
 ```
 multiqc ./   ## 
 ```
+
+<H2>
+
+### 3. Quality trimming and adapter removal using TRIMMOMATIC (tentative)
+
+[[link to TRIMMOMATIC website]](http://www.usadellab.org/cms/?page=trimmomatic)
+
+
+<H2>
+
+### 4. Alignment against the GRCh38 reference assembly
+
+[[link to the search page of hg38]](https://console.cloud.google.com/storage/browser/genomics-public-data/resources/broad/hg38/v0?pli=1&prefix=Homo_sapiens_assembly38.fasta)
+
+#### 4.1 Build a GRCh38 genome index (bwa)
+
+Build a folder for storing the index and cd to this folder
+```
+cd /tempwork173/qiyoyou/db/
+mkdir grch38_bwa
+cd grch38_bwa/
+```
+
+Download hg38 .fasta from the link and store it to this folder
+```
+wget https://storage.cloud.google.com/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta?_ga=2.56607659.-1064644800.1560758967
+```
+
+Making bwa index
+```
+bwa index Homo_sapiens_assembly38.fasta
+```
+#### 4.2 
+
 
 
