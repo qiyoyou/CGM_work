@@ -126,8 +126,9 @@ snakemake -j 8 -s sk_align   ## use 8 threads
 
 <H2> 
 
-### 6. germline calling 
+### 6. Variant calling (germline) 
 
+Here is a really flexible settings for those parameters.
 (parameters:--min-coverage 20 --min-var-freq 0.2 --min-reads2 4 --min-avg-qual 20 --p-value 0.05)
 
 
