@@ -1,7 +1,7 @@
 
 <H2>
   
-### Overview
+### 0. Overview
   
 DNA-seq：
 
@@ -18,6 +18,8 @@ DNA-seq：
 
 
 <H2>
+
+### 1. Preparation
 
 #### 0.1 install Miniconda3 in Linux
 ```
@@ -40,7 +42,7 @@ conda create -n DNA python=3.7
 conda activate DNA
 ```
 
-### install 'fastqc', 'multiqc', 'trimmomatic', 'bwa', 'samtools' and 'snakemake' in DNA enviroment
+#### 1.2 install 'fastqc', 'multiqc', 'trimmomatic', 'bwa', 'samtools' and 'snakemake' in DNA enviroment
 ```
 conda install -c bioconda fastqc
 conda install -c bioconda multiqc
@@ -49,3 +51,25 @@ conda install -c bioconda bwa
 conda install -c bioconda samtools
 conda install -c bioconda snakemake
 ```
+
+<H2>
+
+### 2. Quality Check
+
+#### 2.1 Make sure you activate the enviromment since we installed 'fastqc' within and change direction to the folder containing raw .fastq data
+```
+conda activate DNA
+cd /tempwork173/qiyoyou/Liu_WES_201903/RawData/
+```
+
+#### 2.2 Quality check with 'fastqc'. Apply fastqc to all file with '.gz' pattern (It usually takes a lot of time if sequence data being large)
+```
+fastqc *.gz   ## 
+```
+
+#### 2.3 Quality check with 'multiqc'. Apply multiqc to the output (.html) in this folder (./). This process integrate all the seperate output .html files into one.
+```
+multiqc ./   ## 
+```
+
+
