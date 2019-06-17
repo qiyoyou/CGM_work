@@ -31,5 +31,21 @@ source /home/qiyoyou/.bashrc
 ```
 conda create -n py3.7 python=3.7
 source activate py3.7
+deactivate
 ```
 
+#### 1.1 create an environment named 'DNA' and activate this environment
+```
+conda create -n DNA python=3.7
+conda activate DNA
+```
+
+### install 'fastqc', 'multiqc', 'trimmomatic', 'bwa', 'samtools' and 'snakemake' in DNA enviroment
+```
+conda install -c bioconda fastqc
+conda install -c bioconda multiqc
+conda install -c bioconda trimmomatic
+conda install -c bioconda bwa
+conda install -c bioconda samtools
+conda install -c bioconda snakemake
+```
