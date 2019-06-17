@@ -93,14 +93,14 @@ multiqc ./   ##
 
 #### 4.1 Build a GRCh38 genome index (bwa)
 
-Build a folder for storing the index and cd to this folder
+Build a folder for storing the index and cd to this folder.
 ```
 cd /tempwork173/qiyoyou/db/
 mkdir grch38_bwa
 cd grch38_bwa/
 ```
 
-Download hg38 .fasta from the link and store it to this folder
+Download hg38 .fasta from the link and store it to this folder.
 ```
 wget https://storage.cloud.google.com/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta?_ga=2.56607659.-1064644800.1560758967
 ```
@@ -109,7 +109,25 @@ Making bwa index
 ```
 bwa index Homo_sapiens_assembly38.fasta
 ```
-#### 4.2 
 
+#### 4.2 Use alignment script to perform align, SAM to BAM and stats
+
+Remember to revise the script to adapt to your own filenames and path names via 'vim' command.
+```
+cd /tempwork173/qiyoyou/Liu_WES_201903/scripts/
+vim sk_align
+snakemake -j 8 -s sk_align   ## use 8 threads
+```
+
+<H2> 
+
+### 5. Remove duplicate and mpileup
+
+
+<H2> 
+
+### 6. germline calling 
+
+(parameters:--min-coverage 20 --min-var-freq 0.2 --min-reads2 4 --min-avg-qual 20 --p-value 0.05)
 
 
