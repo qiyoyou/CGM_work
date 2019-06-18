@@ -1,0 +1,22 @@
+BASE_DIR = "/tempwork173/qiyoyou/"
+WDIR = BASE_DIR + "Liu_WES_201903/"
+TMP_DIR = BASE_DIR + "tmp/"
+workdir: WDIR
+
+BED = WDIR + "align/Exome-Agilent_V5.bed"
+FASTA = BASE_DIR + "db/grch38_bwa/Homo_sapiens_assembly38.fasta"
+
+SAMPLES, = glob_wildcards("align/{smp}_sorted_rmdup.bam")
+
+rule all:
+     input:expand(WDIR + 'calling/{smp}.vcf',smp = SAMPLES)
+     input:expand(WDIR + 'calling/{smp}.log',smp = SAMPLES)
+
+rule calling:
+     input: WDIR + "align/{smp}_sorted_rmdup.bam.pileup"
+     output: WDIR + "calling/{smp}.vcf"
+     log: WDIR + "calling/{smp}.log"
+     shell:"""
+          varscan mpileup2snp {input} --min-coverage 20 --min-var-freq 0.2 --min-reads2 4 --min-avg-qual 20 --p-value 0.05 --output-vcf 1>> {output} 2> {log}
+           """
+
