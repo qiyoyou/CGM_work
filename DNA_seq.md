@@ -70,12 +70,12 @@ cd /tempwork173/qiyoyou/Liu_WES_201903/RawData/
 
 #### 2.2 Quality check with 'fastqc'. Apply fastqc to all file with '.gz' pattern (It usually takes a lot of time if sequence data being large)
 ```
-fastqc *.gz   ## 
+fastqc *.gz
 ```
 
 #### 2.3 Quality check with 'multiqc'. Apply multiqc to the output (.html) in this folder (./). This process integrate all the seperate output .html files into one.
 ```
-multiqc ./   ## 
+multiqc ./
 ```
 
 <H2>
