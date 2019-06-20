@@ -56,3 +56,11 @@ picard CollectWgsMetrics \
        R=/tempwork173/qiyoyou/db/grch38_bwa/Homo_sapiens_assembly38.fasta \
        INTERVALS=/tempwork173/qiyoyou/Liu_WES_201903/align/list.interval_list
 ```
+
+
+### Supplementary
+
+Here is a old post about calculation of average coverage for a bam file. There might be another method or tools to do. 
+[[Question: Tools To Calculate Average Coverage For A Bam File?]](https://www.biostars.org/p/5165/)
+
+
