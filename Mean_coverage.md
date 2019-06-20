@@ -32,7 +32,7 @@ picard CreateSequenceDictionary \
 
 Detail: [[BedToIntervalList]](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.0.0/picard_util_BedToIntervalList.php)
 
-Input 'Exome-Agilent_V5.bed' and output file is named 'list.interval_list'. 'reference.dict' is the output from the last step.
+Input 'Exome-Agilent_V5.bed' and output file is named 'list.interval_list'. 'reference.dict' is the output from step 1.
 ```
 picard BedToIntervalList \
        I=/tempwork173/qiyoyou/Liu_WES_201903/align/Exome-Agilent_V5.bed \
@@ -40,7 +40,7 @@ picard BedToIntervalList \
        SD=/tempwork173/qiyoyou/Liu_WES_201903/align/reference.dict
 ```
 
-### 3. 
+### 3. Collect metrics about coverage and performance of whole genome sequencing (WGS) experiments
 
 Detail: [[CollectWgsMetrics]](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/picard_analysis_CollectWgsMetrics.php#--INTERVALS)
 
@@ -48,6 +48,11 @@ Use the script 'sk_mean_coverage' to calculate coverage information for each .BA
 ```
 snakemake -j 10 -s sk_mean_coverage
 ```
-Otherwise, do this process on each BAM file
+Otherwise, do this process on each BAM file. 'list.interval_list' is the output from step 2.
 ```
+picard CollectWgsMetrics \
+       I=/tempwork173/qiyoyou/Liu_WES_201903/align/input.bam \
+       O=/tempwork173/qiyoyou/Liu_WES_201903/align/temp/output.bam \
+       R=/tempwork173/qiyoyou/db/grch38_bwa/Homo_sapiens_assembly38.fasta \
+       INTERVALS=/tempwork173/qiyoyou/Liu_WES_201903/align/list.interval_list
 ```
