@@ -136,3 +136,9 @@ Here is a really flexible settings for those parameters.
 (parameters:--min-coverage 20 --min-var-freq 0.2 --min-reads2 4 --min-avg-qual 20 --p-value 0.05)
 
 
+### Supplementary
+
+[[How to Download hg38/GRCh38 FASTA Human Reference Genome]](https://www.gungorbudak.com/blog/2018/05/16/how-to-download-hg38-grch38-fasta-human-reference-genome/)
+
+
+
