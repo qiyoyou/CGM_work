@@ -44,9 +44,10 @@ picard BedToIntervalList \
 
 Detail: [[CollectWgsMetrics]](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/picard_analysis_CollectWgsMetrics.php#--INTERVALS)
 
-Use the script 'sk_mean_coverage' to calculate coverage information for each .BAM file (after alignment and duplicate removal)
+Use the script ['sk_mean_coverage'](https://github.com/qiyoyou/CGM_work/blob/master/sk_mean_coverage) to calculate coverage information for each BAM file (after alignment and duplicate removal) via [snakemake](https://snakemake.readthedocs.io/en/stable/) which is a tool of workflow management system.
+
 ```
-snakemake -j 10 -s sk_mean_coverage
+snakemake -j 10 -s sk_mean_coverage   ## -j: number of threads used;  -s: the script to run
 ```
 Otherwise, do this process on each BAM file. 'list.interval_list' is the output from step 2.
 ```
