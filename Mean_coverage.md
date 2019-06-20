@@ -58,6 +58,8 @@ picard CollectWgsMetrics \
        INTERVALS=/tempwork173/qiyoyou/Liu_WES_201903/align/list.interval_list
 ```
 
+Finally, the detail of the output from step 4 can be seen from [Picard web page](https://broadinstitute.github.io/picard/picard-metric-definitions.html#CollectWgsMetrics.WgsMetrics).
+
 
 ### Supplementary
 
