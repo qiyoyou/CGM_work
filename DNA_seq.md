@@ -140,5 +140,9 @@ Here is a really flexible settings for those parameters.
 
 [[How to Download hg38/GRCh38 FASTA Human Reference Genome]](https://www.gungorbudak.com/blog/2018/05/16/how-to-download-hg38-grch38-fasta-human-reference-genome/)
 
+### Reference
 
+(Analysis workflow)
+
+1. Lee CY, Chiu YC, Wang LB, et al: Common applications of next-generation sequencing technologies in genomic research. Translational Cancer Research 2013;2:33-45. http://tcr.amegroups.com/article/view/962/html
 
