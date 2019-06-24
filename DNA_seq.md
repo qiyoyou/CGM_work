@@ -139,7 +139,10 @@ Here is a really flexible settings for those parameters.
 
 ### 7. Variant annotation
 
+#### 7.1 Apply 'bgzip' and 'tabix' on .vcf file
+
 ```
+cd /tempwork173/qiyoyou/Liu_WES_201903/calling/
 parallel bgzip {} ::: *.vcf
 parallel tabix -p vcf {} ::: *.vcf.gz
 ```
@@ -150,6 +153,34 @@ parallel tabix -p vcf {} ::: *.vcf.gz
 bgzip Variants_sample_A.raw.vcf
 tabix -p vcf Variants_sample_A.raw.vcf.gz
 ```
+#### 7.2 Create an folder and download VCFtools 
+
+[[VCFtools download link]](https://sourceforge.net/projects/vcftools/files/)
+
+```
+cd /tempwork173/qiyoyou/
+mkdir tools
+cd tools/
+tar -xvf vcftools_0.1.13.tar.gz
+```
+
+#### 7.3 Go to the decompressed folder and merge all the .vcf.gz into one .vcf file
+
+Merge seperate .vcf files into one via VCFtools:vcf-merge. After this procedure, 'Variants_all_samples.vcf' can be uploaded to [wANNOVAR](http://wannovar.wglab.org/) to perform functional annotation.
+
+```
+cd /tempwork173/qiyoyou/tools/vcftools_0.1.13/perl/
+perl vcf-merge /tempwork173/qiyoyou/Liu_WES_201903/calling/temp/*.vcf.gz >| /tempwork173/qiyoyou/Liu_WES_201903/calling/temp/Variants_all_samples.vcf
+```
+
+#### 7.4 Create a combined .vcf file without header by using 'awk' (optional)
+
+Remove the header lines containing '##'.
+
+```
+awk '! /\##/' Variants_all_samples.vcf > Variants_all_samples_no_header.vcf
+```
+
 
 ### Supplementary
 
