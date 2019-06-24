@@ -56,6 +56,7 @@ conda install -c bioconda trimmomatic
 conda install -c bioconda bwa
 conda install -c bioconda samtools
 conda install -c bioconda snakemake
+conda install -c bioconda htslib ## for bgzip and tabix
 ```
 
 <H2>
@@ -135,6 +136,20 @@ snakemake -j 8 -s sk_align   ## use 8 threads
 Here is a really flexible settings for those parameters.
 (parameters:--min-coverage 20 --min-var-freq 0.2 --min-reads2 4 --min-avg-qual 20 --p-value 0.05)
 
+
+### 7. Variant annotation
+
+```
+parallel bgzip {} ::: *.vcf
+parallel tabix -p vcf {} ::: *.vcf.gz
+```
+
+```
+# or one by one
+# For each VCF file:
+bgzip Variants_sample_A.raw.vcf
+tabix -p vcf Variants_sample_A.raw.vcf.gz
+```
 
 ### Supplementary
 
