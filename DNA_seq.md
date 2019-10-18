@@ -17,7 +17,7 @@ DNA-seq：
 
 ### Main process
   1. Quality assessment
-  2. Alignment against hg38
+  2. Alignment against GRCh38
   3. Duplicate removal
   4. Variant calling (germline or somatic mode)
   5. Variant annotation
